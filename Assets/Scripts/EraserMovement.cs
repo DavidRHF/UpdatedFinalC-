@@ -3,6 +3,7 @@ using UnityEngine;
 public class EraserMovement : MonoBehaviour
 {
     public float speed = 5f;
+    public EraserPuzzle puzzle;
 
     void Update()
     {
@@ -16,8 +17,7 @@ public class EraserMovement : MonoBehaviour
     {
         if (other.CompareTag("Eraseable"))
         {
-            Debug.Log("Erased: " + other.name);
-            Destroy(other.gameObject);
+            puzzle.EraseObject(other.gameObject);
         }
     }
 }

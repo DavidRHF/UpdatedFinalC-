@@ -977,8 +977,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd4abfc0003ce224da172072fa154421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eraser: {fileID: 0}
-  speed: 5
 --- !u!4 &188205761
 Transform:
   m_ObjectHideFlags: 0
@@ -4160,6 +4158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  puzzle: {fileID: 188205760}
 --- !u!1 &786627362
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,31 +1,31 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public class EraserPuzzle : PuzzleBase
+public class EraserPuzzle : MonoBehaviour
 {
-    public Transform eraser;
-    public float speed = 5f;
-
-    int remaining = 0;
+    int remaining;
 
     void Start()
     {
         remaining = GameObject.FindGameObjectsWithTag("Eraseable").Length;
+        Debug.Log("Total eraseable: " + remaining);
     }
 
-
-    void OnTriggerEnter2D(Collider2D other)
+    public void EraseObject(GameObject obj)
     {
-        if (other.CompareTag("Eraseable"))
-        {
-            Destroy(other.gameObject);
-            remaining--;
+        Destroy(obj);
+        remaining--;
 
-            if (remaining <= 0)
-            {
-                Complete(100);
-            }
+        Debug.Log("Remaining: " + remaining);
+
+        if (remaining <= 0)
+        {
+            Debug.Log("ALL ERASED → WIN");
+            Win();
         }
     }
 
-    public override void StartPuzzle() { }
+    void Win()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("WinScene");
+    }
 }
